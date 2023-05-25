@@ -35,12 +35,12 @@ defmodule Countriex.Mixfile do
 
   defp deps do
     [
-      {:earmark, "~> 1.0", only: :dev},
-      {:ex_doc, "~> 0.14", only: :dev},
-      {:httpoison, "~> 0.10", only: :dev},
-      {:poison, "~> 3.0", only: :dev},
+      {:earmark, "~> 1.4.38", only: :dev},
+      {:ex_doc, "~> 0.21", only: :dev},
+      {:httpoison, "~> 1.8.0", only: :dev},
+      {:poison, "~> 5.0", only: :dev},
 
-      {:ex_unit_notifier, "~> 0.1", only: :test}
+      {:ex_unit_notifier, "~> 1.3", only: :test}
     ]
   end
 end

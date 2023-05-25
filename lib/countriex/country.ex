@@ -10,6 +10,8 @@ defmodule Countriex.Country do
              :international_prefix,
              :ioc,
              :name,
+             :iso_long_name,
+             :iso_short_name,
              :national_destination_code_lengths,
              :national_number_lengths,
              :national_prefix,

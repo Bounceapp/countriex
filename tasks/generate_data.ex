@@ -27,15 +27,13 @@ defmodule Mix.Tasks.Countriex.GenerateData do
 
   defp parse(data) when is_map(data) do
     geo = data.geo |> parse_geo
-    %Country{} |> Map.merge(data) |> Map.merge(%{geo: geo})
+    %Country{} |> Map.merge(data) |> Map.merge(%{name: Map.get(data, :iso_short_name)}) |> Map.merge(%{geo: geo})
   end
 
   defp parse_geo(geo_data) do
     %Geo{
       latitude:       geo_data.latitude |> to_float,
-      latitude_dec:   geo_data.latitude_dec |> to_float,
       longitude:      geo_data.longitude |> to_float,
-      longitude_dec:  geo_data.longitude_dec |> to_float,
       max_latitude:   geo_data.max_latitude |> to_float,
       max_longitude:  geo_data.max_longitude |> to_float,
       min_latitude:   geo_data.min_latitude |> to_float,
