@@ -27,7 +27,10 @@ defmodule Mix.Tasks.Countriex.GenerateData do
 
   defp parse(data) when is_map(data) do
     geo = data.geo |> parse_geo
-    %Country{} |> Map.merge(data) |> Map.merge(%{name: Map.get(data, :iso_short_name)}) |> Map.merge(%{geo: geo})
+    %Country{}
+      |> Map.merge(data)
+      |> Map.merge(%{name: List.first(Map.get(data, :unofficial_names, []))})
+      |> Map.merge(%{geo: geo})
   end
 
   defp parse_geo(geo_data) do
